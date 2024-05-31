@@ -1,0 +1,43 @@
+﻿@* @model List<Kitap> *@
+
+@{
+    ViewBag.Title = "Sepet";
+}
+
+<h2>Sepet</h2>
+
+<h3>Eklenen Kitap Bilgileri</h3>
+@if (ViewBag.BasariliMesaj != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.BasariliMesaj
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kitap ID</th>
+            <th>Kitap Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+       @*  @foreach (var kitap in Model)
+        {
+            <tr>
+                <td>@kitap.Id</td>
+                <td>@ViewBag.KitapAdi</td>
+            </tr>
+        }
+    </tbody> *@
+</table>
+
+@if (ViewBag.KitapId != null && ViewBag.KitapAdi != null)
+{
+    <p> @ViewBag.KitapId</p>
+    <p> @ViewBag.KitapAdi</p>
+}
+<form method="post" action="@Url.Action("SepetiOnayla", "Kitap")">
+    <input type="submit" value="Sepeti Onayla" class="btn btn-primary" />
+</form>
+
